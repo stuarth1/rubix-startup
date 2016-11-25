@@ -1,0 +1,69 @@
+.button-hover:hover{    
+  transition: all 0.5s ease-in-out;
+  -webkit-transform: scale(1.1);
+        -ms-transform: scale(1.1);
+        transform: scale(1.1);
+}
+.background-black{
+    background-color: #000;
+    color: #d1d1d1
+}
+.container-fluid{
+    padding-left: 0px;
+    padding-right: 0px;
+}
+.image-rotate{
+        -webkit-animation-name: pulsate;
+    -webkit-animation-duration: 40s;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear; 
+}
+@-webkit-keyframes pulsate {
+    0% {-webkit-transform: scale(1.0, 1.0) rotate(0deg); opacity: 1.0;}
+    50% {-webkit-transform: scale(1.2, 1.2) rotate(180deg); opacity: 1.0;}
+    100% {-webkit-transform: scale(1.0, 1.0) rotate(360deg); opacity: 1.0;}
+}
+.colored-panel{
+    color: #d1d1d1;
+    background-image: -webkit-linear-gradient(top,#324056 0,#161c26 100%);
+    background-image: -o-linear-gradient(top,#324056 0,#161c26 100%);
+    background-image: -webkit-gradient(linear,left top,left bottom,from(#324056),to(#161c26));
+    background-image: linear-gradient(to bottom,#324056 0,#161c26 100%);
+}
+.padding-xs{
+    padding: 5px;
+}
+.padding-sm{
+    padding: 10px;
+}
+.padding-md{
+    padding: 20px;
+}
+.padding-lg{
+    padding: 30px;
+}
+.padding-xl{
+    padding: 50px;
+}
+.p-vr-md{
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.valign-wrapper {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.valign-wrapper .valign {
+  display: block;
+}
+
+.contract-image{
+  height: 50px;
+  width: 50px;
+  cursor: pointer;
+}
