@@ -3,10 +3,17 @@ var app = express();
 var bodyParser = require('body-parser');
 
 app.use(bodyParser.json());
+app.set('view engine', 'ejs');
 
 app.get('/', (req, res) => {
-    res.sendFile(__dirname + "/public/" + "index.html");
+    res.render("index");
 });
+
+app.get('/weather', (req, res) => {
+    var city = [{name: "Toronto", pressure: "111", tempurature: "4", humidity: "10"},{name: "Hamilton", pressure: "222", tempurature: "1", humidity: "5"},]
+    res.render("weather", {city});
+});
+
 
 app.get('/data', (req, res) => {
     var data = { name: "Stuart", abilities: "programmer", powerlevel: ">9000"}
