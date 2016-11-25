@@ -1,13 +1,8 @@
 var express = require('express');
 var app = express();
+var bodyParser = require('body-parser');
 
-
-module.exports.listen = function(app) {
-    io = socketio.listen(app);
-    io.on('connection', function(socket){
-        console.log('a user connected');  
-    });
-}
+app.use(bodyParser.json());
 
 app.get('/', (req, res) => {
     res.sendFile(__dirname + "/public/" + "index.html");
@@ -16,6 +11,12 @@ app.get('/', (req, res) => {
 app.get('/data', (req, res) => {
     var data = { name: "Stuart", abilities: "programmer", powerlevel: ">9000"}
     res.send(data);
+    res.end("end");
+});
+
+app.post('/postdata', (req, res) => {
+    var body = req.body;
+    console.log("Name:" + body.team + " " + body.details);
     res.end("end");
 });
 

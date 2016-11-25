@@ -34,9 +34,11 @@
                     </div>
                     <div class="col-sm-4">
                         <p>This is an example of using bootstrap's column functionality.</p>
+                        <button class="btn btn-success button-hover" onclick="postData()">Post Data!</button>
                     </div>
                     <div class="col-sm-2">
                         <p>This is an example of using bootstrap's column functionality.</p>
+                        <button class="btn btn-danger button-hover" onclick="sockets()">Sockets!</button>
                     </div>
                 </div>
                 <div class="row p-vr-md">
@@ -73,18 +75,29 @@
 </html>
 <script>
 var socket = io();
-function deploy(){
+
+
+function sockets(){
+    socket.emit('contractDeployment',{ socket: "test contract: ", contract: "ticker" });
+}
+
+
+function postData(){
+    var rubixData={team: "rubix", details: "we rock", building: "amazing dapps"}
     $.ajax({
-        type: "GET",
-        url: "/data",
-        success: function(req){
-            console.log(req);
+        type: "POST",
+        url: "/postdata",
+        data: JSON.stringify(rubixData),
+        contentType: "application/json",
+        success: function(data){
+            console.log(data);
         },
         error: function(err){
             console.log(err);
         }
     })
 }
+
 function getData(){
     $.ajax({
         type: "GET",
