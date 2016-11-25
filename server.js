@@ -3,6 +3,7 @@ var app = express();
 var bodyParser = require('body-parser');
 
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true })); 
 app.set('view engine', 'ejs');
 
 app.get('/', (req, res) => {
@@ -14,6 +15,9 @@ app.get('/weather', (req, res) => {
     res.render("weather", {city});
 });
 
+app.get('/form', (req, res) => {
+    res.render("form");
+});
 
 app.get('/data', (req, res) => {
     var data = { name: "Stuart", abilities: "programmer", powerlevel: ">9000"}
@@ -26,6 +30,12 @@ app.post('/postdata', (req, res) => {
     console.log("Name:" + body.team + " " + body.details);
     res.end("end");
 });
+app.post('/postform', (req, res) => {
+    var body = req.body;
+    console.log("Name: " + body.name + ", Company: " + body.company + ", Email: " + body.email + ", Address: " + body.address + ", City: " + body.city + ", Country: " + body.country);
+    res.render("index");
+});
+
 
 app.use(express.static('public'));
 
